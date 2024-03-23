@@ -1,5 +1,5 @@
 package Linked_List_Data_Structure.Singly_Linked_List;
-public class InsertBegin {
+public class InsertEnd {
     private static class ListNode{
         private int data;
         private ListNode next;
@@ -17,17 +17,23 @@ public class InsertBegin {
         }
         System.out.print("null");
     }
-    public void insertFirst(int value){
+    public void insertLast(int value){
         ListNode newNode = new ListNode(value);
-        newNode.next = head;
-        head = newNode;
+        if(head == null){
+            head = newNode;
+            return;
+        }
+        ListNode current = head;
+        while(current.next != null){
+            current = current.next;
+        }
+        current.next = newNode;
     }
     public static void main(String args[]){
-        InsertBegin obj = new InsertBegin();
-        obj.insertFirst(11);
-        obj.insertFirst(8);
-        obj.insertFirst(1);
+        InsertEnd obj = new InsertEnd();
+        obj.insertLast(11);
+        obj.insertLast(8);
+        obj.insertLast(1);
         obj.display();
     }
 }
-
