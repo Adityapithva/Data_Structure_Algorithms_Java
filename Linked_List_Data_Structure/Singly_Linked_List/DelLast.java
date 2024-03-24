@@ -1,5 +1,5 @@
 package Linked_List_Data_Structure.Singly_Linked_List;
-public class DelFirst {
+public class DelLast {
     private static class ListNode{
         private int data;
         private ListNode next;
@@ -17,17 +17,21 @@ public class DelFirst {
         }
         System.out.print("null");
     }
-    public ListNode deleteFirst(){
-        if(head == null){
-            return null;
+    public ListNode deleteLast(){
+        if(head == null || head.next == null){
+            return head;
         }
-        ListNode temp = head;
-        head = head.next;
-        temp.next = null;
-        return temp;
+        ListNode current = head;
+        ListNode previous = null;
+        while(current.next != null){
+            previous = current;
+            current = current.next;
+        }
+        previous.next = null;
+        return current;
     }
     public static void main(String[] args) {
-        DelFirst obj = new DelFirst();
+        DelLast obj = new DelLast();
         obj.head = new ListNode(1);
         ListNode second = new ListNode(2);
         ListNode third = new ListNode(3);
@@ -36,7 +40,7 @@ public class DelFirst {
         second.next = third;
         third.next = fourth;
         obj.display();
-        System.out.println(obj.deleteFirst().data);
+        System.out.println(obj.deleteLast().data);
         obj.display();
     }
 }
