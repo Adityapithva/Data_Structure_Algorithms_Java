@@ -18,6 +18,7 @@ public class InsertSorted {
         System.out.print("null");
     }
     public ListNode insertSorted(int n){
+        //1 --> 2 --> 3 --> 5
         ListNode newNode = new ListNode(n);
         if(head == null){
             return newNode;

@@ -18,6 +18,7 @@ public class ReverseLL {
         System.out.print("null");
     }
     public ListNode reverse(ListNode head){
+        //1 --> 2 --> 3 --> 4 --> 5
         if(head == null){
             return head;
         }

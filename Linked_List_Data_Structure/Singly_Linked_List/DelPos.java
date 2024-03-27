@@ -23,7 +23,7 @@ public class DelPos {
         }else{
             ListNode previous = head;
             int count = 1;
-            while(count < count - 1){
+            while(count < position - 1){
                 previous = previous.next;
                 count++;
             }
