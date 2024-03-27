@@ -1,5 +1,5 @@
 package Linked_List_Data_Structure.Doubly_Linked_List;
-public class DelFirst {
+public class DelEnd {
     private ListNode head;
     private ListNode tail;
     private int length;
@@ -11,7 +11,7 @@ public class DelFirst {
             this.data = data;
         }
     }
-    public DelFirst(){
+    public DelEnd(){
         this.head = null;
         this.tail = null;
         this.length = 0;
@@ -44,41 +44,39 @@ public class DelFirst {
         }
         System.out.print("null");
     }
-    public void InsertFirst(int value){
+    public void insertLast(int value){
         ListNode newNode = new ListNode(value);
         if(isEmpty()){
-            tail = newNode;
+            head = newNode;
         }else{
-            head.previous = newNode;
+            tail.next = newNode;
+            newNode.previous = tail;
         }
-        newNode.next = head;
-        head = newNode;
+        tail = newNode;
         length++;
     }
-    public ListNode deleteFirst(){
+    public ListNode deleteLast(){
         if(isEmpty()){
-            System.out.println("Empty list..!");
+            return null;
         }
-        ListNode temp = head;
+        ListNode temp = tail;
         if(head == tail){
-            tail = null;
+            head = null;
         }else{
-            head.next.previous = null;
+            tail.previous.next = null;
         }
-        head = head.next;
-        temp.next = null;
-        length--;
+        tail = tail.previous;
+        temp.previous = null;
         return temp;
     }
-    public static void main(String[] args){
-        DelFirst obj = new DelFirst();
-        obj.InsertFirst(1);
-        obj.InsertFirst(10);
-        obj.InsertFirst(15);
-        obj.displayBackward();
-        obj.deleteFirst();
+    public static void main(String[] args) {
+        DelEnd obj = new DelEnd();
+        obj.insertLast(1);
+        obj.insertLast(10);
+        obj.insertLast(15);
+        obj.displayForward();
+        obj.deleteLast();
         System.out.println();
-        obj.displayBackward();
-        
+        obj.displayForward();
     }
 }
