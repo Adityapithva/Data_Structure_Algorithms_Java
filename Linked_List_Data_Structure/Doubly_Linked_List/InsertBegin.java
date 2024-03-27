@@ -1,5 +1,5 @@
 package Linked_List_Data_Structure.Doubly_Linked_List;
-public class PrintElements {
+public class InsertBegin {
     private ListNode head;
     private ListNode tail;
     private int length;
@@ -11,7 +11,7 @@ public class PrintElements {
             this.data = data;
         }
     }
-    public PrintElements(){
+    public InsertBegin(){
         this.head = null;
         this.tail = null;
         this.length = 0;
@@ -44,7 +44,24 @@ public class PrintElements {
         }
         System.out.print("null");
     }
+    public void InsertFirst(int value){
+        ListNode newNode = new ListNode(value);
+        if(isEmpty()){
+            tail = newNode;
+        }else{
+            head.previous = newNode;
+        }
+        newNode.next = head;
+        head = newNode;
+        length++;
+    }
     public static void main(String[] args) {
-        
+        InsertBegin obj = new InsertBegin();
+        obj.InsertFirst(1);
+        obj.InsertFirst(10);
+        obj.InsertFirst(15);
+        obj.displayBackward();
+        System.out.println();
+        obj.displayForward();
     }
 }
