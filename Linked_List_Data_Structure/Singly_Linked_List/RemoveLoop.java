@@ -1,6 +1,7 @@
 package Linked_List_Data_Structure.Singly_Linked_List;
-public class DetectLoop {
-    public static class ListNode{
+public class RemoveLoop {
+    private static ListNode head;
+    private static class ListNode{
         private int data;
         private ListNode next;
         private ListNode(int data){
@@ -8,7 +9,6 @@ public class DetectLoop {
             this.next = null;
         }
     }
-    private ListNode head;
     public void display(){
         ListNode current = head;
         while(current != null){
@@ -16,18 +16,6 @@ public class DetectLoop {
             current = current.next;
         }
         System.out.print("null");
-    }
-    public boolean containsLoop(){
-        ListNode fastptr = head;
-        ListNode slowptr = head;
-        while(fastptr != null && fastptr.next != null){
-            fastptr = fastptr.next.next;
-            slowptr = slowptr.next;
-            if(fastptr == slowptr){
-                return true;
-            }
-        }
-        return false;
     }
     public void createALoopList(){
         ListNode first = new ListNode(1);
@@ -44,9 +32,30 @@ public class DetectLoop {
         fifth.next = sixth;
         sixth.next = third;
     }
+    public void startNode(){
+        ListNode fastptr = head;
+        ListNode slowptr = head;
+        while(fastptr != null && fastptr.next != null){
+            fastptr = fastptr.next;
+            slowptr = slowptr.next;
+            if(fastptr == slowptr){
+                removeLoop(slowptr);
+                return;
+            }
+        }
+    }
+    private void removeLoop(ListNode slowptr){
+        ListNode temp = head;
+        while(temp.next != slowptr.next){
+            temp = temp.next;
+            slowptr = slowptr.next;
+        }
+        slowptr.next = null;
+    }
     public static void main(String[] args) {
-        DetectLoop obj = new DetectLoop();
+        RemoveLoop obj = new RemoveLoop();
         obj.createALoopList();
-        System.out.println(obj.containsLoop());
+        obj.startNode();
+        obj.display();
     }
 }
