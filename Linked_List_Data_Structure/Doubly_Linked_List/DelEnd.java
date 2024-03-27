@@ -67,6 +67,7 @@ public class DelEnd {
         }
         tail = tail.previous;
         temp.previous = null;
+        length--;
         return temp;
     }
     public static void main(String[] args) {
