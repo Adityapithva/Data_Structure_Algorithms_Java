@@ -58,15 +58,15 @@ public class BinaryTree {
             return;
         }
         Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while(!stack.isEmpty()){
-            TreeNode temp = stack.pop();
-            if(temp.right != null){
-                stack.push(temp.right);
-            }
-            System.out.print(temp.data+" ");
-            if(temp.left != null){
-                stack.push(temp.left);
+        TreeNode temp = root;
+        while(!stack.isEmpty() || temp != null){
+            if(temp != null){
+                stack.push(temp);
+                temp = temp.left;
+            }else{
+                temp = stack.pop();
+                System.out.print(temp.data+" ");
+                temp = temp.right;
             }
         }
     }
