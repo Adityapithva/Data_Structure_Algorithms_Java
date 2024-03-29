@@ -1,5 +1,5 @@
 package Tree_Data_Structure;
-import java.util.Stack;
+import java.util.*;
 public class BinaryTree {
     private TreeNode root;
     private class TreeNode{
@@ -78,6 +78,23 @@ public class BinaryTree {
         postOrder(root.right);
         System.out.print(root.data+" ");
     }
+    public void levelOrder(){
+        if(root == null){
+            return;
+        }
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while(!q.isEmpty()){
+            TreeNode temp = q.poll();
+            System.out.print(temp.data+" ");
+            if(temp.left != null){
+                q.offer(temp.left);
+            }
+            if(temp.right != null){
+                q.offer(temp.right);
+            }
+        }
+    }
     public static void main(String[] args) {
         BinaryTree bst = new BinaryTree();
         bst.createBinaryTree();
@@ -95,5 +112,8 @@ public class BinaryTree {
         System.out.println();
         System.out.println("Recursive Post-Order Tree Traversal:-");
         bst.postOrder(bst.root);
+        System.out.println();
+        System.out.println("Level-Order Tree Traversal:-");
+        bst.levelOrder();
     }
 }
