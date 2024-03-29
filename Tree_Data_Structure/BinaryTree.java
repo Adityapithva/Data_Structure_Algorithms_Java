@@ -45,13 +45,44 @@ public class BinaryTree {
             }
         }
     }
+    public void inOrder(TreeNode root){
+        if(root == null){
+            return;
+        }
+        inOrder(root.left);
+        System.out.print(root.data+" ");
+        inOrder(root.right);
+    }
+    public void iterativeInOrder(){
+        if(root == null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode temp = stack.pop();
+            if(temp.right != null){
+                stack.push(temp.right);
+            }
+            System.out.print(temp.data+" ");
+            if(temp.left != null){
+                stack.push(temp.left);
+            }
+        }
+    }
     public static void main(String[] args) {
         BinaryTree bst = new BinaryTree();
         bst.createBinaryTree();
         System.out.println("Recursive Pre-Order Tree Traversal:-");
         bst.preOrder(bst.root);
         System.out.println();
-        System.out.println("Iteratie Pre-Order Tree Traversal:-");
+        System.out.println("Iterative Pre-Order Tree Traversal:-");
         bst.iterativePreOrder();
+        System.out.println();
+        System.out.println("Recursive In-Order Tree Traversal:-");
+        bst.inOrder(bst.root);
+        System.out.println();
+        System.out.println("Iterative In-Order Tree Traversal:-");
+        bst.iterativeInOrder();
     }
 }
