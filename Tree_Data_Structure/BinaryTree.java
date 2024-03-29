@@ -1,4 +1,5 @@
 package Tree_Data_Structure;
+import java.util.Stack;
 public class BinaryTree {
     private TreeNode root;
     private class TreeNode{
@@ -27,9 +28,30 @@ public class BinaryTree {
         preOrder(root.left);
         preOrder(root.right);
     }
+    public void iterativePreOrder(){
+        if(root == null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode temp = stack.pop();
+            System.out.print(temp.data+" ");
+            if(temp.right!= null){
+                stack.push(temp.right);
+            }
+            if(temp.left!= null){
+                stack.push(temp.left);
+            }
+        }
+    }
     public static void main(String[] args) {
         BinaryTree bst = new BinaryTree();
         bst.createBinaryTree();
+        System.out.println("Recursive Pre-Order Tree Traversal:-");
         bst.preOrder(bst.root);
+        System.out.println();
+        System.out.println("Iteratie Pre-Order Tree Traversal:-");
+        bst.iterativePreOrder();
     }
 }
