@@ -49,11 +49,23 @@ public class Queue {
         }
         int data = front.data;
         front = front.next;
-        if(front == rear){
+        if(front == null){
             rear = null;
         }
         length--;
         return data;
+    }
+    public int first(){
+        if(isEmpty()){
+            return -1;
+        }
+        return front.data;
+    }
+    public int last(){
+        if(isEmpty()){
+            return -1;
+        }
+        return rear.data;
     }
     public static void main(String[] args) {
         Queue q = new Queue();
@@ -67,5 +79,8 @@ public class Queue {
         q.enqueue(40);
         System.out.println();
         q.print();
+        System.out.println();
+        System.out.println(q.first());
+        System.out.println(q.last());
     }
 }
