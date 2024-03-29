@@ -95,6 +95,21 @@ public class BinaryTree {
             }
         }
     }
+    public int findMax(TreeNode root){
+        if(root == null){
+            return Integer.MIN_VALUE;
+        }
+        int result = root.data;
+        int left = findMax(root.left);
+        int right = findMax(root.right);
+        if(left > result){
+            result = left;
+        }
+        if(right > result){
+            result = right;
+        }
+        return result;
+    }
     public static void main(String[] args) {
         BinaryTree bst = new BinaryTree();
         bst.createBinaryTree();
@@ -115,5 +130,7 @@ public class BinaryTree {
         System.out.println();
         System.out.println("Level-Order Tree Traversal:-");
         bst.levelOrder();
+        System.out.println();
+        System.out.println(bst.findMax(bst.root));
     }
 }
