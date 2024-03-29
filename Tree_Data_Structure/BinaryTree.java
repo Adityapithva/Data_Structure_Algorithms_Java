@@ -70,6 +70,14 @@ public class BinaryTree {
             }
         }
     }
+    public void postOrder(TreeNode root){
+        if(root == null){
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data+" ");
+    }
     public static void main(String[] args) {
         BinaryTree bst = new BinaryTree();
         bst.createBinaryTree();
@@ -84,5 +92,8 @@ public class BinaryTree {
         System.out.println();
         System.out.println("Iterative In-Order Tree Traversal:-");
         bst.iterativeInOrder();
+        System.out.println();
+        System.out.println("Recursive Post-Order Tree Traversal:-");
+        bst.postOrder(bst.root);
     }
 }
