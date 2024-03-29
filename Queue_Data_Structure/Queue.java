@@ -43,11 +43,26 @@ public class Queue {
         rear = temp;
         length++;
     }
+    public int dequeue(){
+        if(isEmpty()){
+            return -1;
+        }
+        int data = front.data;
+        front = front.next;
+        length--;
+        return data;
+    }
     public static void main(String[] args) {
         Queue q = new Queue();
         q.enqueue(10);
         q.enqueue(20);
         q.enqueue(30);
+        q.print();
+        q.dequeue();
+        System.out.println();
+        q.print();
+        q.enqueue(40);
+        System.out.println();
         q.print();
     }
 }
