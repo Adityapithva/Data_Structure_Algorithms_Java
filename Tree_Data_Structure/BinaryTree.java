@@ -111,26 +111,26 @@ public class BinaryTree {
         return result;
     }
     public static void main(String[] args) {
-        BinaryTree bst = new BinaryTree();
-        bst.createBinaryTree();
+        BinaryTree bt = new BinaryTree();
+        bt.createBinaryTree();
         System.out.println("Recursive Pre-Order Tree Traversal:-");
-        bst.preOrder(bst.root);
+        bt.preOrder(bt.root);
         System.out.println();
         System.out.println("Iterative Pre-Order Tree Traversal:-");
-        bst.iterativePreOrder();
+        bt.iterativePreOrder();
         System.out.println();
         System.out.println("Recursive In-Order Tree Traversal:-");
-        bst.inOrder(bst.root);
+        bt.inOrder(bt.root);
         System.out.println();
         System.out.println("Iterative In-Order Tree Traversal:-");
-        bst.iterativeInOrder();
+        bt.iterativeInOrder();
         System.out.println();
         System.out.println("Recursive Post-Order Tree Traversal:-");
-        bst.postOrder(bst.root);
+        bt.postOrder(bt.root);
         System.out.println();
         System.out.println("Level-Order Tree Traversal:-");
-        bst.levelOrder();
+        bt.levelOrder();
         System.out.println();
-        System.out.println(bst.findMax(bst.root));
+        System.out.println("Maximum value is:-"+bt.findMax(bt.root));
     }
 }
