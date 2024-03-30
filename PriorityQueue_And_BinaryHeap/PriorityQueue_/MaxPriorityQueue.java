@@ -79,6 +79,6 @@ public class MaxPriorityQueue {
         pq.insert(3);
         // pq.printMaxHeap();
         System.out.println(pq.deleteMax());
-        pq.printMaxHeap();
+        // pq.printMaxHeap();
     }
 }
