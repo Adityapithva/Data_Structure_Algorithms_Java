@@ -44,7 +44,7 @@ public class MaxPriorityQueue {
         int max = heap[1];
         swap(1,n);
         n--;
-        // sink(1);
+        sink(1);
         heap[n+1] = null;
         if(n > 0 && n == (heap.length - 1)/4){
             resize(heap.length/2);
